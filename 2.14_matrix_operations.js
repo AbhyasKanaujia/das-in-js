@@ -27,10 +27,26 @@ for(let i = 0; i < mat1.length; i++) {
     difference[i].push(mat1[i][j] - mat2[i][j]);
 }
 
+// Product of matrix
+function multiplyRowCol(row, col, mat1, mat) {
+  let sum = 0;
+  for(let i = 0; i < mat1.length; i++)
+    sum += mat1[i][col] * mat2[row][i];
+  return sum;
+}
+
+const product = Array.from(
+                            { length: mat1.length }, 
+                            (_, row ) => Array.from(
+                                                      { length: mat2[row].length }, 
+                                                      (_, col, arr) => multiplyRowCol(row, col, mat1, mat2)));
+
 console.table(mat1);
 console.table(mat2);
 console.log("Sum: ");
 console.table(sum);
 console.log("Difference: ");
 console.table(difference);
+console.log("Product: ");
+console.table(product);
 
